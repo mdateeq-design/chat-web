@@ -1,0 +1,26 @@
+{
+  "name": "chat-app-frontend",
+  "version": "1.0.0",
+  "description": "Real-time chat application frontend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'No build step required for static files'"
+  },
+  "keywords": [
+    "chat",
+    "websocket",
+    "realtime"
+  ],
+  "author": "md ateeq",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}

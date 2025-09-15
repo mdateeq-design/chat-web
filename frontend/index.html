@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App - Main</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <header class="chat-header">
+            <h1>💬 Chat App</h1>
+            <div class="user-info">
+                <span id="username-display">Guest</span>
+                <div class="status-indicator offline"></div>
+                <button id="switch-user-btn" class="switch-user-btn">Switch User</button>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <!-- Authentication Check Modal -->
+        <div id="auth-modal" class="modal">
+            <div class="modal-content">
+                <h2>Authentication Required</h2>
+                <p>Please login to continue using the chat app.</p>
+                <a href="auth.html" class="btn btn-primary">Login / Sign Up</a>
+            </div>
+        </div>
+
+        <!-- Chat Selection -->
+        <div class="chat-selection">
+            <div class="chat-tabs">
+                <button class="tab-btn active" onclick="showChatTab('contacts')">Contacts</button>
+                <button class="tab-btn" onclick="showChatTab('chats')">Chats</button>
+                <button class="tab-btn" onclick="showChatTab('groups')">Groups</button>
+            </div>
+            
+            <!-- Contacts Tab -->
+            <div id="contacts-tab" class="tab-content active">
+                <div class="search-bar">
+                    <input type="text" id="contact-search" placeholder="Search users by name or phone...">
+                    <button id="search-users-btn">Search</button>
+                </div>
+                <div id="contacts-list" class="contacts-list"></div>
+            </div>
+            
+            <!-- Chats Tab -->
+            <div id="chats-tab" class="tab-content">
+                <div id="chats-list" class="chats-list"></div>
+            </div>
+            
+            <!-- Groups Tab -->
+            <div id="groups-tab" class="tab-content">
+                <button id="create-group-btn" class="btn btn-primary">Create Group</button>
+                <div id="groups-list" class="groups-list"></div>
+            </div>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" id="messages-container">
+            <!-- Messages will be dynamically added here -->
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typing-indicator" style="display: none;">
+            <span>Someone is typing...</span>
+        </div>
+
+        <!-- Message Input -->
+        <form class="chat-input" id="message-form">
+            <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+
+        <!-- Online Users -->
+        <div class="online-users">
+            <h3>Online Users (<span id="user-count">0</span>)</h3>
+            <ul id="users-list"></ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
